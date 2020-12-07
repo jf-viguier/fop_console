@@ -23,16 +23,12 @@ jobs:
         uses: "actions/checkout@v2"
         with:
           lfs: true
+      - run: composer install --ansi --prefer-dist --no-interaction --no-progress
+            
       - name: check files
         run: |
           pwd
           ls -al
-              
-      - name: "Launch composer install"
-        uses: php-actions/composer@v4
-        with:
-          dev: no
-          php_version: 7.2 
 
       - name: "Prepare files"
         run: |
