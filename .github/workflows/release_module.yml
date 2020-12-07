@@ -9,8 +9,7 @@ jobs:
   ps_release:
     runs-on: "ubuntu-latest"
 
-    steps:
-      - uses: php-actions/composer@v4
+    steps:      
       - name: "Setup zipname. Exports $MODULE_NAME, $VERSION & $ZIP_FILE"
         run: |
           MODULE_NAME=${GITHUB_REPOSITORY#*/}
@@ -24,6 +23,12 @@ jobs:
         uses: "actions/checkout@v2"
         with:
           lfs: true
+      
+      - name: "Launch composer install"
+        uses: php-actions/composer@v4
+        with:
+          dev: no
+          php_version: 7.2 
 
       - name: "Prepare files"
         run: |
