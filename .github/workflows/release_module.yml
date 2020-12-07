@@ -10,6 +10,7 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
+      - uses: php-actions/composer@v4
       - name: "Setup zipname. Exports $MODULE_NAME, $VERSION & $ZIP_FILE"
         run: |
           MODULE_NAME=${GITHUB_REPOSITORY#*/}
